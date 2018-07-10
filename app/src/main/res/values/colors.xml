@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="color_top">#3E84CA</color> <!-- #3377bb #3E84CA -->
+    <color name="color_middle">#F5F5F5</color> <!-- #f3f3f3 #284251 -->
+    <color name="color_bottom">#FFFFFF</color>
+    <color name="title">@color/color_top</color>
+    <color name="middle">@color/color_middle</color>
+    <color name="bottom">@color/color_bottom</color>
+    <color name="button_blue_color">#1456AA</color>
+    <color name="invest_blue_color">#1456AA</color>
+    <color name="invest_ccc_color">#cccccc</color>
+    <color name="button_gray_color">#ff666666</color>
+    <color name="item_gray_color">#ffcfcfcf</color>
+    <color name="item_default_color">#85D3EF</color>
+    <color name="notification_color">#497794</color>
+    <color name="color_loan_item_font">#000000</color>
+    <color name="color_apply_count">#0099ff</color>
+    <color name="color_apply_count_press">#ffffff</color>
+    <color name="color_item_name">#2A2A2A</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#00ff00</color>
+    <color name="blue">#0000ff</color>
+    <color name="white">#ffffff</color>
+    <color name="gray">#999999</color>
+    <color name="alpha">#ffffffff</color>
+    <color name="transparent">#00000000</color>
+    <color name="gray_background">#ffcccccc</color>
+
+    <color name="rgb111">#111111</color>
+    <color name="rgb222">#222222</color>
+    <color name="rgb333">#333333</color>
+    <color name="rgb444">#444444</color>
+    <color name="rgb555">#555555</color>
+    <color name="rgb666">#666666</color>
+    <color name="rgb777">#777777</color>
+    <color name="rgb888">#888888</color>
+    <color name="rgb999">#999999</color>
+    <color name="aaaaaa">#aaaaaa</color>
+    <color name="bbbbbb">#bbbbbb</color>
+    <color name="cccccc">#cccccc</color>
+    <color name="dddddd">#dddddd</color>
+    <color name="eeeeee">#eeeeee</color>
+    <color name="ffc107">#FFC107</color>
+    <color name="shop_title_color">#A6090B</color><!-- 达飞商城模块标题背景颜色 -->
+    <color name="scan_title_color">#cc000000</color><!-- 扫一扫模块标题背景颜色 -->
+    <color name="redpackets_title_color">#403F47</color><!-- 达赏模块标题背景颜色 -->
+
+    <item name="list_bg_color" type="color">@color/white</item>
+
+    <color name="light_gray">#ffaaaaaa</color>
+    <color name="entity_color">#ff1f6299</color>
+
+    <item name="service_active" type="color">@color/entity_color</item>
+
+    <color name="action_bar_title_text">#ffd8e0e9</color>
+
+    <item name="service_default" type="color">@color/black</item>
+
+    <color name="text_shadow_green_button">#ff237531</color>
+
+    <item name="people_tagging_dialog_title_shadow" type="color">@color/white</item>
+
+    <color name="people_tagging_cell_divider">#ffc9cbcd</color>
+
+    <item name="venues_cell_background" type="color">@color/people_tagging_cell_divider</item>
+
+    <!-- from ay -->
+    <color name="backgroudColor">#ffecedee</color>
+    <color name="colorBlack">#ff000000</color>
+    <color name="text_light_gray">#ff999999</color>
+    <color name="TextColorBlack">#ff333333</color>
+    <color name="colorOrange">#ffff7700</color>
+    <color name="colorLightGray">#ff999999</color>
+
+    <!-- TopTipBar error color -->
+    <color name="top_tip_bar_error">#FF4444</color>
+    <color name="top_tip_bar_tip">#1E90FF</color>
+    <color name="top_title_bg_color">#4889db</color>
+    <color name="input_password_bg">#55000000</color>
+
+    <!-- 借款主界面四个按钮默认、按下时的背景颜色 -->
+    <color name="df_color_loan_item_bg_normal">@color/white</color>
+    <color name="df_color_loan_item_bg_pressed">#079fff</color>
+
+    <!-- 达飞宝购买界面协议按钮背景颜色 -->
+    <color name="df_color_protocol_btn_bg_normal">#00000000</color>
+    <color name="df_color_protocol_btn_bg_pressed">@color/blue</color>
+
+    <!-- 顶部设置按钮背景颜色 -->
+    <color name="df_color_top_setbtn_bg_normal">#00000000</color>
+    <color name="df_color_top_setbtn_bg_pressed">#66000000</color>
+
+    <!-- 扫描二维码用到的颜色start -->
+    <color name="contents_text">#ff000000</color>
+    <color name="encode_view">#ffffffff</color>
+    <color name="help_button_view">#ffcccccc</color>
+    <color name="help_view">#ff404040</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="result_text">#ffffffff</color>
+    <color name="result_view">#b0000000</color>
+    <color name="sbc_header_text">#ff808080</color>
+    <color name="sbc_header_view">#ffffffff</color>
+    <color name="sbc_list_item">#fffff0e0</color>
+    <color name="sbc_layout_view">#ffffffff</color>
+    <color name="sbc_page_number_text">#ff000000</color>
+    <color name="sbc_snippet_text">#ff4b4b4b</color>
+    <color name="share_text">#ff000000</color>
+    <color name="share_view">#ffffffff</color>
+    <color name="status_view">#50000000</color>
+    <color name="status_text">#ffffffff</color>
+    <color name="viewfinder_frame">#ff000000</color>
+    <color name="viewfinder_laser">#ffff0000</color>
+    <color name="viewfinder_mask">#7f000000</color>
+    <!-- 扫描二维码用到的颜色end -->
+
+    <!-- 消费详情界面 -->
+    <color name="o2o_trading_details_key">#999999</color>
+    <color name="o2o_trading_details_value">#2E2E2E</color>
+    <color name="o2o_trading_details_pay">#999999</color>
+
+    <!-- table的边框颜色 -->
+    <color name="df_table_bg_color">#c0c0c0</color> <!--  表格背景色 -->
+    <color name="df_table_border_color">@color/df_table_bg_color</color> <!--  表格边框色 808080 -->
+
+    <!-- table中的Item正常和按下状态的背景颜色 -->
+    <color name="df_table_item_bgcolor_normal">@color/white</color> <!--  Item正常时背景色 -->
+    <color name="df_table_item_bgcolor_pressed">#F2F2F2</color> <!--  Item按下时背景色 backup #079fff -->
+    <color name="df_table_item_bordercolor_normal">@color/df_table_bg_color
+    </color> <!--  Item正常时边框色 -->
+    <color name="df_table_item_bordercolor_pressed">#079fff</color> <!--  Item按下时边框色 -->
+
+    <!-- 常用文本框边框样式 #68B0EC -->
+    <color name="df_text_view_border_color_focused">#68B0EC</color>
+    <color name="df_text_view_border_color_normal">#cccccc</color>
+    <color name="df_text_view_border_color_pressed">#68B0EC</color>
+
+    <!-- 常用背景状态颜色 -->
+    <color name="df_sclector_bg_color_normal">#00000000</color>
+    <color name="df_sclector_bg_color_pressed">@color/color_top</color>
+
+    <!-- 自定义键盘按钮默认、按下时的背景颜色 -->
+    <color name="df_keyboard_button_bgcolor_normal">#cccccc</color>
+    <color name="df_keyboard_button_bgcolor_pressed">#999999</color>
+
+    <!-- button -->
+    <color name="df_bg_write2blue_normal">#FFFFFF</color>
+    <color name="df_bg_write2blue_pressed">#EFEFEF</color>
+
+    <!-- ListView的Item正常、按下时的背景颜色 -->
+    <color name="df_color_list_item_bg_normal">@color/white</color>
+    <color name="df_color_list_item_bg_pressed">#E3E3E3</color>
+
+    <!-- 地址列表item状态 -->
+    <color name="df_color_list_item_bg_shop_address_list_normal">#F4F4F4</color>
+    <color name="df_color_list_item_bg_shop_address_list_pressed">#E7E7E7</color>
+
+    <!-- 商城商品详情底部布局背景色 -->
+    <color name="df_color_shop_botton_layout_bg">#EEEEEE</color>
+
+    <!-- 附近商家底部布局背景色 -->
+    <color name="body">#F1F1F1</color>
+    <color name="black2">#444444</color>
+    <color name="listview_item_pressed_color">#f3f3f3</color>
+    <color name="ssssss">#CCCCCC</color>
+    <!-- 达飞贷理财 -->
+    <color name="grey2">#888888</color>
+    <color name="green2">#82BF00</color>
+    <color name="black4">#333</color>
+    <color name="grey3">#F8F8F8</color>
+    <color name="grey4">#ccc</color>
+    <color name="blue2">#336699</color>
+    <color name="orange">#fc651c</color>
+    <color name="grey5">#666666</color>
+    <color name="black3">#2C2C2C</color>
+    <color name="grey6">#333333</color>
+    <!-- 支付对话框 -->
+    <color name="orange1">#fc6d1e</color>
+    <!-- 手势密码画的线 -->
+    <color name="gueterline">#00FFFF</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="f00000000">#00000000</color>
+    <color name="f7f7f7">#f7f7f7</color>
+    <color name="ffcacaca">#FFCACACA</color>
+    <color name="ff8e8e8e">#FF8E8E8E</color>
+    <color name="FFFF774A">#FFFF774A</color>
+    <color name="FFFFEFEA">#FFFFEFEA</color>
+    <color name="FF6D6D6D">#FF6D6D6D</color>
+    <color name="FFFFC107">#FFFFC107</color>
+    <color name="FF78D72A">#FF78D72A</color>
+    <color name="FFFF4161">#FFFF4161</color>
+    <color name="ffffff">#ffffff</color>
+    <color name="f222222">#222222</color>
+    <color name="f999999">#999999</color>
+    <color name="d8d8d8">#d8d8d8</color>
+    <color name="F5F5F5">#F5F5F5</color>
+    <color name="f6d6d6d">#6d6d6d</color>
+    <color name="d2d2d2">#d2d2d2</color>
+    <color name="f666666">#666666</color>
+    <color name="FF7E00">#FF7E00</color>
+    <color name="ededed">#EDEDED</color>
+    <color name="f2a2a2a">#2A2A2A</color>
+    <color name="f353535">#353535</color>
+    <color name="f535353">#535353</color>
+    <color name="fd2d3d5">#d2d3d5</color>
+    <color name="cp_colorPrimary">#3F51B5</color>
+    <color name="cp_colorPrimaryDark">#303F9F</color>
+    <color name="cp_colorAccent">#3F51B5</color>
+
+    <color name="cp_color_gray_light">#cdcdcd</color>
+    <color name="cp_color_gray">#999999</color>
+    <color name="cp_color_gray_deep">#666666</color>
+    <color name="cp_color_gray_dark">#333333</color>
+    <color name="cp_color_section_bg">#f5f5f5</color>
+    <color name="cp_color_section_stoke">#EDEDED</color>
+
+    <!-- tab 点击 -->
+    <color name="black_333333">#ff333333</color>
+    <color name="gray_999999">#999999</color>
+
+
+    <color name="primary">#009688</color>
+    <color name="primaryDark">#00796b</color>
+    <color name="accent">#eeff41</color>
+    <color name="accentLight">#F4FF81</color>
+</resources>

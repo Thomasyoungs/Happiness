@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/df_mytoast_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/df_loading_bg"
+    android:orientation="horizontal"
+    android:padding="10dip"
+    android:visibility="visible">
+
+    <ProgressBar
+        android:id="@+id/df_loading_icon"
+        android:layout_width="25dip"
+        android:layout_height="25dip"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
+
+    <ImageView
+        android:id="@+id/df_loading_image"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_centerVertical="true"
+        android:background="@drawable/loading_01" />
+
+    <TextView
+        android:id="@+id/df_loading_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dip"
+        android:background="#00000000"
+        android:padding="6dip"
+        android:text="处理中..."
+        android:textColor="#cccccc"
+        android:textSize="16sp"
+        android:visibility="visible" />
+
+</RelativeLayout>

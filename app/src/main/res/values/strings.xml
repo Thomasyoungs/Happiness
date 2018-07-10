@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="package_name">com.haipay.credit</string>
+    <string name="loading_msg">加载中&#8230;</string>
+
+    <!-- 登录密码框允许输入的字符 -->
+    <string name="login_password_include_string">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ#$%@,._+-*/</string>
+    <!-- 登录密码框允许输入的字符 -->
+    <string name="login_password_include_sign">#$%@,._+-</string>
+    <!-- 支付密码框允许输入的字符 -->
+    <string name="pay_password_include_string">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <!-- 金额输入框允许输入的字符 -->
+    <string name="df_money_include_string">0123456789.</string>
+
+
+    <!-- ************my******************************************************************* -->
+    <string name="huanhang">\n</string>
+
+    <!-- 手势锁  start -->
+    <string name="cancel">取消</string>
+    <string name="try_again">重试</string>
+    <string name="goon">继续</string>
+    <string name="confirm">确认</string>
+    <string name="lockpattern_recording_incorrect_too_short">"至少连接4个点，请重试"</string>
+    <string name="lockpattern_error">"手势密码不对"</string>
+    <!-- 当用户开始绘制手势图案时发送一个Accessibility描述，字符长度无限制 -->
+    <string name="lockscreen_access_pattern_start">开始绘图</string>
+    <!-- 当手势图案超时或被清除时，发送一个Accessibility描述，字符长度无限制 -->
+    <string name="lockscreen_access_pattern_cleared">重新绘图</string>
+    <!-- 当用户添加了一个单元到图案中时发送一个Accessibility描述，字符长度无限制 -->
+    <string name="lockscreen_access_pattern_cell_added">增加绘图单元</string>
+    <!-- 当用户完成手势绘图时发送一个Accessibility描述，字符长度无限制 -->
+    <string name="lockscreen_access_pattern_detected">绘图完成</string>
+    <!-- 手势锁 end -->
+
+    <string name="title_activity_result">ResultActivity</string>
+
+    <!-- 拾取 银行卡 -->
+    <string name="title_activity_information">Information</string>
+    <string name="title_activity_scan_camera">ScanCamera</string>
+    <string name="title_activity_show_result">ShowResult</string>
+    <string name="return_activity_toast">请填写返回界面参数</string>
+    <string name="take_pic">开始拍照</string>
+    <string name="no_flash">当前设备不支持闪光灯</string>
+    <string name="auth_overdue_front">您的授权已于</string>
+    <string name="auth_overdue_after">到期，请更新授权，否则识别功能将停止使用！</string>
+    <string name="auth_error_00">在strings文件中未找到company_name字段</string>
+    <string name="toast_code">错误代码:</string>
+    <string name="preview_hint_msg">请将银行卡正面置于此区域，尝试对齐边缘</string>
+    <string name="back_confirm">再按一次退出</string>
+    <string name="card_num_hint">点击输入卡号</string>
+    <!--<string name="confirm">确认</string>-->
+    <string name="bank_name">银行名称:</string>
+    <string name="bank_code">银行行号:</string>
+    <string name="card_name">卡片名称:</string>
+    <string name="card_type">卡片类型:</string>
+    <string name="unknow_card_type">未知的卡片类型</string>
+    <string name="app_name">michell</string>
+    <string name="company_name">达飞普惠财富投资管理（北京）有限公司</string>
+    <!-- 需要加到英文 -->
+    <string name="ActivationProgram">激活程序</string>
+    <string name="dialog_title">首次使用若能联网请在此填写序列号，不区分大小写，并点击“授权验证”按钮.</string>
+    <string name="online_activation">在线激活</string>
+    <string name="activation_success">激活成功</string>
+    <!--<string name="cancel">取消</string>-->
+    <string name="please_connect_network">请连接网络</string>
+    <string name="network_unused">网络不可用</string>
+    <string name="network_null_response">数据返回为空</string>
+    <string name="title_content_splite_key">\?</string>
+
+
+    <!-- auth result error amd help code warning -->
+    <string name="AcquiredGood_warning">The image acquired was good.</string>
+    <string name="AcquiredImageDirty_warning">The fingerprint image was too noisy due to suspected or detected dirt on the sensor.
+        For example, it\'s reasonable to return this after multiple AcquiredInsufficient or
+        actual detection of dirt on the sensor (stuck pixels, swaths, etc.).
+        The user is expected to take action to clean the sensor when this is returned.</string>
+    <string name="AcquiredInsufficient_warning">The fingerprint image was too noisy to process due to
+        a detected condition (i.e. dry skin) or a possibly dirty sensor.</string>
+    <string name="AcquiredPartial_warning">Only a partial fingerprint image was detected.
+        During enrollment, the user should be informed on what needs to happen to resolve this problem, e.g., "press firmly on sensor."</string>
+    <string name="AcquiredTooFast_warning">The fingerprint image was incomplete due to quick motion.
+        While mostly appropriate for linear array sensors, this could also happen if the finger was moved during acquisition.
+        The user should be asked to move the finger slower (linear) or leave the finger on the sensor longer.</string>
+    <string name="AcquiredToSlow_warning">The fingerprint image was unreadable due to lack of motion.
+        This is most appropriate for linear array sensors that require a swipe motion.</string>
+    <string name="ErrorCanceled_warning">The operation was canceled because the fingerprint sensor is unavailable.
+        For example, this may happen when the user is switched,
+        the device is locked, or another pending operation prevents or disables it.</string>
+    <string name="ErrorHwUnavailable_warning">The hardware is unavailable. Try again later.</string>
+    <string name="ErrorLockout_warning">The operation was canceled because the API is locked out due to too many attempts.</string>
+    <string name="ErrorNoSpace_warning">Error state returned for operations like enrollment;
+        the operation cannot be completed because there\'s not enough storage remaining to complete the operation.</string>
+    <string name="ErrorTimeout_warning">Error state returned when the current request has been running too long.
+        This is intended to prevent programs from waiting for the fingerprint sensor indefinitely.
+        The timeout is platform and sensor-specific, but is generally about 30 seconds.</string>
+    <string name="ErrorUnableToProcess_warning">Error state returned when the sensor was unable to process the current image.</string>
+    <string name="fingerprint_description">Confirm your fingerprint.</string>
+    <string name="fingerprint_hint">Touch sensor</string>
+    <string name="double_click_quit">再按一次退出</string>
+
+
+    //-----------------------------------
+    <string name="fragment_personcenter_login">立即登录</string>
+    <string name="fragment_personcenter_edit">查看并编辑个人资料</string>
+    <string name="fragment_personcenter_daifukuan">待付款</string>
+    <string name="fragment_personcenter_zhifuzhong">支付中</string>
+    <string name="fragment_personcenter_yiwancheng">已完成</string>
+    <string name="fragment_personcenter_tuikuan">退款</string>
+    <string name="fragment_personcenter_dingdan">全部订单</string>
+    <string name="fragment_personcenter_yue">账户余额(元)</string>
+    <string name="fragment_personcenter_edu">可用额度(元)</string>
+    <string name="fragment_personcenter_zhangdan">我的账单</string>
+    <string name="fragment_personcenter_kajuan">我的卡券</string>
+    <string name="fragment_personcenter_jilu">交易记录</string>
+    <string name="fragment_personcenter_shezhi">设置</string>
+    <string name="fragment_personcenter_help">帮助中心</string>
+
+    <!-- 登录注册 -->
+    <string name="register"> 注册</string>
+    <string name="login"> 登录</string>
+    <string name="password"> 密码</string>
+    <string name="phone_num">手机号</string>
+    <string name="code_graphic">图形码</string>
+    <string name="code_verificate">验证码</string>
+    <string name="code_recommend">推荐码</string>
+    <string name="next">下一步</string>
+    <string name="set_login_pw">设置登录密码</string>
+    <string name="confirm_login_pw">确认登录密码</string>
+    <string name="send_vertify_code">获取验证码</string>
+    <string name="forgot_password">找回密码</string>
+    <string name="name">姓名</string>
+    <string name="id_card">身份证号</string>
+    <string name="hot_channel">— 优选频道 —</string>
+    <string name="register_setpassword_error">请设置登录密码</string>
+    <string name="register_confirmpassword_error">新密码两次输入不一致,请重新输入</string>
+    <string name="password_null">密码不能为空</string>
+    <!--<string name="passwrod_length_error_1">请输入不少于6位的密码</string>-->
+    <!--<string name="passwrod_length_error_2">请输入不超过20位的密码</string>-->
+    <!--<string name="password_illegal">密码只支持英文和数字</string>-->
+    <string name="password_format_illegal">请输入6-20为数字、字母或字符组合密码</string>
+    <string name="phone_null_error">手机号码不能为空</string>
+    <string name="phone_format_error">手机号码格式不正确</string>
+    <string name="verify_code_send_sucess">验证码已发出</string>
+    <string name="indenticard_null_error">请填写身份证号</string>
+    <string name="indenticard_format_error">身份证号格式不正确</string>
+
+
+    <string name="cp_current_text">"当前定位城市 : "</string>
+    <string name="cp_locate_failed">定位失败</string>
+    <string name="cp_locating">定位中...</string>
+    <string name="cp_search_hint_text">城市中文名或拼音</string>
+    <string name="cp_no_result">没有找到，换个词试试~</string>
+    <string name="title_select_city">选择城市</string>
+    <string name="hot_city">热门城市</string>
+
+    <string name="group_text">人气团购</string>
+    <string name="recommend_text">为您推荐</string>
+    <string name="finished">已完成</string>
+
+    <!-- 授信 -->
+    <string name="credit_use">授信用途</string>
+    <string name="help">帮助</string>
+    <string name="credit_apply">申请授信</string>
+    <string name="submit_apply">申请提交</string>
+    <string name="person_info">个人信息</string>
+    <string name="impact_data">影像资料</string>
+    <string name="credit_scan">扫一扫</string>
+    <string name="credit_scan_tips">扫描商家二维码</string>
+    <string name="apply_instruction">请填写以下信息完成授信并提交申请</string>
+    <string name="submit_instruction">您操作提交申请按钮表示您允许提交授信申请</string>
+    <string name="credit_instruction"> 温馨提示：\n 1.授信申请过程中，您必须按顺序填写并提交相应内容，请您根据提示操作。\n 2.授信审核过程中，会有审核专员与您联系，核实信息，请您保持电话畅通。
+    </string>
+</resources>

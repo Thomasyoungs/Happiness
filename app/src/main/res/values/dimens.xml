@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="form_padding">10.0dip</dimen>
+    <dimen name="row_header_padding">17.0dip</dimen>
+    <dimen name="gridview_padding_tight">1.5999756dip</dimen>
+    <dimen name="gridview_padding_loose">7.5999756dip</dimen>
+    <dimen name="image_button_padding">4.0dip</dimen>
+    <dimen name="action_bar_height">49.0dip</dimen>
+    <dimen name="action_bar_title">20.0dip</dimen>
+    <dimen name="action_bar_title_left_padding">13.0dip</dimen>
+    <dimen name="action_bar_title_right_padding">10.0dip</dimen>
+    <dimen name="nav_bar_height">40.0dip</dimen>
+    <dimen name="row_feed_photo_padding">10.0dip</dimen>
+    <dimen name="large_profile_pic">69.0dip</dimen>
+    <dimen name="profile_button_width">60.0dip</dimen>
+    <dimen name="map_height">140.0dip</dimen>
+    <dimen name="map_width_dialog">350.0dip</dimen>
+    <dimen name="map_height_dialog">250.0dip</dimen>
+    <dimen name="action_bar_branding_margin_left">10.0dip</dimen>
+    <dimen name="toast_inbox_text_size">16.0dip</dimen>
+    <dimen name="toast_item_padding_right">5.0dip</dimen>
+    <dimen name="text_size_large_button">16dip</dimen>
+    <dimen name="text_size_large_follow_button">14.0sp</dimen>
+    <dimen name="button_padding">10.0dip</dimen>
+    <dimen name="load_more_button_width">200.0dip</dimen>
+    <dimen name="overlay_top_offset">0.5dip</dimen>
+    <dimen name="overlay_left_offset">2.5dip</dimen>
+    <dimen name="map_media_outer_margin">20.0dip</dimen>
+    <dimen name="map_media_inner_margin">5.0dip</dimen>
+    <dimen name="menu_maps_right_offset">8.0dip</dimen>
+    <dimen name="menu_maps_top_offset">80.0dip</dimen>
+    <dimen name="maps_square_height">44.0dip</dimen>
+    <dimen name="maps_font_size">12.0dip</dimen>
+    <dimen name="maps_bubble_padding_x">22.0dip</dimen>
+    <dimen name="maps_bubble_padding_y">9.0dip</dimen>
+    <dimen name="maps_bubble_rect_offset_left">11.0dip</dimen>
+    <dimen name="maps_bubble_rect_offset_top">3.5dip</dimen>
+    <dimen name="maps_pile_rect_size">8.0dip</dimen>
+    <dimen name="maps_pile_offset_size">1.0dip</dimen>
+    <dimen name="maps_pile_text_left_offset_double_digits">2.5dip</dimen>
+    <dimen name="maps_pile_text_top_offset">1.0dip</dimen>
+    <dimen name="maps_translate_animation_back_offset">25.0dip</dimen>
+    <dimen name="maps_edit_or_zoom_vertical_offset">55.0dip</dimen>
+    <dimen name="maps_edit_or_zoom_horizontal_offset">4.0dip</dimen>
+    <dimen name="metadata_imageview_size">73.0dip</dimen>
+    <dimen name="bug_imageview_size">44.0dip</dimen>
+    <dimen name="upload_glyph_margin">10.0dip</dimen>
+    <dimen name="upload_glyph_width">30.0dip</dimen>
+    <dimen name="frameinset">1.0dip</dimen>
+    <dimen name="clustering_distance">65.0dip</dimen>
+    <dimen name="edu_sheet_bullet_point_margin">7.0dip</dimen>
+    <dimen name="review_bottom_row_padding">10.0dip</dimen>
+    <dimen name="filter_tile_padding">3.0dip</dimen>
+    <dimen name="profile_private_user_padding">5.0dip</dimen>
+    <dimen name="profile_button_bottom_offset">7.0dip</dimen>
+    <dimen name="profile_button_top_offset">1.5dip</dimen>
+    <dimen name="profile_button_right_offset">1.0dip</dimen>
+    <dimen name="maps_full_frame_total_width_padding">54.0dip</dimen>
+    <dimen name="map_media_centering_offset">30.0dip</dimen>
+    <dimen name="edittext_glyph_padding_left">40.0dip</dimen>
+    <dimen name="edittext_glyph_padding_right">5.0dip</dimen>
+    <dimen name="edittext_glyph_inset_left">7.0dip</dimen>
+    <dimen name="edittext_glyph_drawable_padding">4.0dip</dimen>
+    <dimen name="view_switcher_button_search_textsize">18.0dip</dimen>
+    <dimen name="metadata_text_size">16.0sp</dimen>
+    <dimen name="row_user_height">61.0dip</dimen>
+    <dimen name="pending_media_row_height">51.0dip</dimen>
+    <dimen name="pending_media_row_image_size">37.0dip</dimen>
+    <dimen name="pending_media_upload_bar_padding">4.0dip</dimen>
+    <dimen name="pending_media_upload_bar_corner_radius">4.0dip</dimen>
+    <dimen name="row_divider_height">1.0dip</dimen>
+    <dimen name="row_highlight_height">1.0px</dimen>
+    <dimen name="row_fullwidth_multiline_height">50.0dip</dimen>
+    <dimen name="row_fullwidth_height">43.0dip</dimen>
+    <dimen name="clip_view_height">8.0dip</dimen>
+    <dimen name="blinker_initial_left_offset">8.0dip</dimen>
+    <dimen name="blinker_offset_from_buttonbar">7.0dip</dimen>
+    <dimen name="camera_buttonbar_height">90.0dip</dimen>
+    <dimen name="camcorder_buttonbar_height">90.0dip</dimen>
+    <dimen name="video_import_timeline_overlay_padding">16.0dip</dimen>
+    <dimen name="trimhandle_offset">5.0dip</dimen>
+    <dimen name="trimhandle_bounds_x">32.0dip</dimen>
+    <dimen name="trimhandle_bounds_y">35.0dip</dimen>
+    <dimen name="trim_play_indicator_min_padding">1.0dip</dimen>
+    <dimen name="trim_overlay_corner_radius">3.0dip</dimen>
+    <dimen name="straighten_ruler_angle_text_size">13.0dip</dimen>
+    <dimen name="dialog_margin">20.0dip</dimen>
+    <dimen name="sentiment_tool_question_margin">15.0dip</dimen>
+    <dimen name="sentiment_tool_answer_padding">12.0dip</dimen>
+    <dimen name="explore_people_spacing_photo_grid">4.0dip</dimen>
+    <dimen name="explore_people_dialog_internal_padding">12.0dip</dimen>
+    <dimen name="explore_people_dialog_margin">16.0dip</dimen>
+    <dimen name="avatar_large">70.0dip</dimen>
+    <dimen name="avatar_user_row_large">60.0dip</dimen>
+    <dimen name="avatar_user_row_small">37.0dip</dimen>
+    <dimen name="circular_avatar_stroke_width">1.0px</dimen>
+
+    <!-- from ay -->
+    <dimen name="item_left_icon_large">32.0dip</dimen>
+    <dimen name="sp_12">12.0sp</dimen>
+
+    <!-- ***************表格配置************************************** -->
+    <dimen name="df_border_size">0.5dip</dimen> <!-- 表格中Item按下边框大小 -->
+    <dimen name="df_table_border_size">@dimen/df_border_size</dimen> <!-- 表格中Item按下边框大小 -->
+    <dimen name="df_table_item_vertical_space">@dimen/df_border_size
+    </dimen> <!-- 表格中item与item的垂直方向的间隔距离 -->
+    <dimen name="df_table_item_corners_radius">1.0dip</dimen> <!-- 圆角半径 -->
+    <dimen name="df_table_item_border_size_normal">0dip</dimen> <!-- 表格中Item正常边框大小 -->
+    <dimen name="df_table_item_border_size_pressed">0dip</dimen> <!-- 表格中Item按下边框大小 -->
+
+    <dimen name="df_text_view_border_size_normal">@dimen/df_border_size</dimen>
+    <dimen name="df_text_view_border_size_pressed">@dimen/df_border_size</dimen>
+    <dimen name="df_text_view_border_size_focused">@dimen/df_border_size</dimen>
+
+    <dimen name="df_button_radius">0dip</dimen>
+    <dimen name="df_button_stroke_width">0dip</dimen>
+    <dimen name="df_scan_hint_msg_font_size">18sp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+
+    <dimen name="_view__1">-1dp</dimen>
+    <dimen name="_view_0">0dp</dimen>
+    <dimen name="_view_1">1dp</dimen>
+    <dimen name="_view_2">2dp</dimen>
+    <dimen name="_view_3">3dp</dimen>
+    <dimen name="_view_4">5dp</dimen>
+    <dimen name="_view_5">5dp</dimen>
+    <dimen name="_view_6">6dp</dimen>
+    <dimen name="_view_7">7dp</dimen>
+    <dimen name="_view_8">8dp</dimen>
+    <dimen name="_view_9">9dp</dimen>
+    <dimen name="_view_10">10dp</dimen>
+    <dimen name="_view_11">11dp</dimen>
+    <dimen name="_view_12">12dp</dimen>
+    <dimen name="_view_13">13dp</dimen>
+    <dimen name="_view_14">14dp</dimen>
+    <dimen name="_view_15">15dp</dimen>
+    <dimen name="_view_16">16dp</dimen>
+    <dimen name="_view_17">17dp</dimen>
+    <dimen name="_view_18">18dp</dimen>
+    <dimen name="_view_19">19dp</dimen>
+    <dimen name="_view_20">20dp</dimen>
+    <dimen name="_view_21">21dp</dimen>
+    <dimen name="_view_22">22dp</dimen>
+    <dimen name="_view_23">23dp</dimen>
+    <dimen name="_view_24">24dp</dimen>
+    <dimen name="_view_25">25dp</dimen>
+    <dimen name="_view_26">26dp</dimen>
+    <dimen name="_view_27">27dp</dimen>
+    <dimen name="_view_28">28dp</dimen>
+    <dimen name="_view_29">29dp</dimen>
+    <dimen name="_view_30">30dp</dimen>
+    <dimen name="_view_35">35dp</dimen>
+    <dimen name="_view_40">40dp</dimen>
+    <dimen name="_view_49">49dp</dimen>
+    <dimen name="_view_45">45dp</dimen>
+    <dimen name="_view_50">50dp</dimen>
+    <dimen name="_view_65">65dp</dimen>
+    <dimen name="_view_75">75dp</dimen>
+    <dimen name="_view_80">80dp</dimen>
+    <dimen name="_view_81">81dp</dimen>
+    <dimen name="_view_82">82dp</dimen>
+    <dimen name="_view_83">83dp</dimen>
+    <dimen name="_view_84">84dp</dimen>
+    <dimen name="_view_85">85dp</dimen>
+    <dimen name="_view_86">86dp</dimen>
+    <dimen name="_view_87">87dp</dimen>
+    <dimen name="_view_88">88dp</dimen>
+    <dimen name="_view_89">89dp</dimen>
+    <dimen name="_view_90">90dp</dimen>
+    <dimen name="_view_91">91dp</dimen>
+    <dimen name="_view_92">92dp</dimen>
+    <dimen name="_view_93">93dp</dimen>
+    <dimen name="_view_94">94dp</dimen>
+    <dimen name="_view_95">95dp</dimen>
+    <dimen name="_view_96">96dp</dimen>
+    <dimen name="_view_97">97dp</dimen>
+    <dimen name="_view_98">98dp</dimen>
+    <dimen name="_view_99">99dp</dimen>
+
+    <dimen name="_view_100">100dp</dimen>
+    <dimen name="_view_200">200dp</dimen>
+
+    <dimen name="_size_0">0sp</dimen>
+    <dimen name="_size_1">1sp</dimen>
+    <dimen name="_size_2">2sp</dimen>
+    <dimen name="_size_3">3sp</dimen>
+    <dimen name="_size_4">5sp</dimen>
+    <dimen name="_size_5">5sp</dimen>
+    <dimen name="_size_6">6sp</dimen>
+    <dimen name="_size_7">7sp</dimen>
+    <dimen name="_size_8">8sp</dimen>
+    <dimen name="_size_9">9sp</dimen>
+    <dimen name="_size_10">10sp</dimen>
+    <dimen name="_size_11">11sp</dimen>
+    <dimen name="_size_12">12sp</dimen>
+    <dimen name="_size_13">13sp</dimen>
+    <dimen name="_size_14">14sp</dimen>
+    <dimen name="_size_15">15sp</dimen>
+    <dimen name="_size_16">16sp</dimen>
+    <dimen name="_size_17">17sp</dimen>
+    <dimen name="_size_18">18sp</dimen>
+    <dimen name="_size_19">19sp</dimen>
+    <dimen name="_size_20">20sp</dimen>
+    <dimen name="_size_21">21sp</dimen>
+    <dimen name="_size_22">22sp</dimen>
+    <dimen name="_size_23">23sp</dimen>
+    <dimen name="_size_24">24sp</dimen>
+    <dimen name="_size_25">25sp</dimen>
+    <dimen name="_size_26">26sp</dimen>
+    <dimen name="_size_27">27sp</dimen>
+    <dimen name="_size_28">28sp</dimen>
+    <dimen name="_size_29">29sp</dimen>
+    <dimen name="_size_30">30sp</dimen>
+
+
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="cp_default_padding">16dp</dimen>
+
+    <dimen name="cp_index_bar_width">36dp</dimen>
+    <dimen name="cp_index_bar_text_size">11sp</dimen>
+
+    <dimen name="cp_cancel_text_size">14sp</dimen>
+    <dimen name="cp_search_text_size">14sp</dimen>
+
+    <dimen name="cp_empty_icon_width">56dp</dimen>
+    <dimen name="cp_empty_icon_height">56dp</dimen>
+    <dimen name="cp_empty_text_size">14sp</dimen>
+
+    <dimen name="cp_section_height">32dp</dimen>
+    <dimen name="cp_section_text_size">14sp</dimen>
+
+    <dimen name="cp_list_item_height">45dp</dimen>
+    <dimen name="cp_list_item_text_size">14sp</dimen>
+
+    <dimen name="cp_grid_item_space">16dp</dimen>
+    <dimen name="cp_grid_item_padding">10dp</dimen>
+
+    <dimen name="cp_overlay_width">80dp</dimen>
+    <dimen name="cp_overlay_height">80dp</dimen>
+    <dimen name="cp_overlay_text_size">30sp</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="margin_standard">16dp</dimen>
+    <dimen name="margin_short">8dp</dimen>
+    <dimen name="margin_extra_short">4dp</dimen>
+
+    <dimen name="toolbar_elevation">4dp</dimen>
+
+    <dimen name="toolbar_margin_start">15dp</dimen>
+    <dimen name="flexible_space_height">72dp</dimen>
+    <dimen name="flexible_space_image_height">240dp</dimen>
+    <dimen name="flexible_space_show_fab_offset">120dp</dimen>
+
+    <dimen name="parallax_image_height">180dp</dimen>
+    <dimen name="tab_height">48dp</dimen>
+
+    <dimen name="header_bar_height">72dp</dimen>
+    <dimen name="intersection_height">16dp</dimen>
+
+    <dimen name="sliding_slop">32dp</dimen>
+    <dimen name="sliding_overlay_blur_size">4dp</dimen>
+</resources>

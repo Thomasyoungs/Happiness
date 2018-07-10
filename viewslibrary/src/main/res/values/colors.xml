@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<resources>
+    <!-- viewPagerIndicator -->
+    <color name="vpi__background_holo_dark">#ff000000</color>
+    <color name="vpi__background_holo_light">#fff3f3f3</color>
+    <color name="vpi__bright_foreground_holo_dark">@color/vpi__background_holo_light</color>
+    <color name="vpi__bright_foreground_holo_light">@color/vpi__background_holo_dark</color>
+    <color name="vpi__bright_foreground_disabled_holo_dark">#ff4c4c4c</color>
+    <color name="vpi__bright_foreground_disabled_holo_light">#ffb2b2b2</color>
+    <color name="vpi__bright_foreground_inverse_holo_dark">@color/vpi__bright_foreground_holo_light</color>
+    <color name="vpi__bright_foreground_inverse_holo_light">@color/vpi__bright_foreground_holo_dark</color>
+
+
+    <color name="black_233a59">#233a59</color>
+    <color name="red">#ff0000</color>
+    <color name="common_white">#ffffff</color>
+    <color name="f222222">#222222</color>
+    <color name="setting_text_color">#c8c7cc</color>
+    <color name="common_transparent">@android:color/transparent</color>
+    <color name="orange">#DC6F2A</color>
+</resources>

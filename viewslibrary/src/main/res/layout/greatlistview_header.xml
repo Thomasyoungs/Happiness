@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/listview_header_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="center"
+        android:layout_height="75dp">
+
+        <LinearLayout
+            android:id="@+id/listview_header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/listview_header_hint_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/listview_header_hint_normal"
+                android:textColor="#55000000"
+                android:textSize="12sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/listview_header_last_time"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/listview_header_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/listview_header_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@id/listview_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-35dp"
+            android:src="@drawable/headview_red_arrow"
+            android:visibility="gone" />
+
+        <!-- <ProgressBar
+             android:id="@+id/xlistview_header_progressbar"
+             android:layout_width="@dimen/margin_30dp"
+             android:layout_height="@dimen/margin_30dp"
+             android:indeterminateDrawable="@anim/loading_progressbar_anim"
+             android:indeterminateOnly="true"
+             android:indeterminateBehavior="repeat"
+             android:layout_centerInParent="true"
+             android:visibility="visible" />-->
+
+        <ImageView
+            android:id="@+id/xlistview_header_progressbar"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignLeft="@id/listview_header_text"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-25dp" />
+    </RelativeLayout>
+
+</LinearLayout>
