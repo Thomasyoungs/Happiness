@@ -1,9 +1,11 @@
-package com.viewslibrary.view.ob;
+package com.viewslibrary.view.stretch;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ScrollView;
@@ -21,6 +23,7 @@ public class StretchScrollView extends ScrollView {
      * The max scroll height.
      */
     private static final int MAX_SCROLL_HEIGHT = 400;
+    private static final int SCROLL_BACK_TIME = 300;
     /**
      * Damping, the smaller the greater the resistance
      */
@@ -41,7 +44,7 @@ public class StretchScrollView extends ScrollView {
                 if (mScrollY != 0 && mTouchStop) {
                     mScrollY -= mScrollDy;
 
-                    if ((mScrollDy < 0 && mScrollY > 0) || (mScrollDy > 0 && mScrollY < 0)) {
+                    if ((mScrollDy < 0 && mScrollY > -10) || (mScrollDy > 0 && mScrollY < 10)) {
                         mScrollY = 0;
                     }
                     mChildRootView.scrollTo(0, mScrollY);
@@ -111,7 +114,8 @@ public class StretchScrollView extends ScrollView {
                 if (mScrollY != 0) {
                     mTouchStop = true;
                     mScrollDy = (int) (mScrollY / 10.0f);
-                    mHandler.sendEmptyMessage(MSG_REST_POSITION);
+//                    mHandler.sendEmptyMessage(MSG_REST_POSITION);
+                    ScrollBack();
                 }
                 break;
 
@@ -121,13 +125,13 @@ public class StretchScrollView extends ScrollView {
                 mTouchY = nowY;
                 if (isNeedMove()) {
                     int offset = mChildRootView.getScrollY();
-                    if (offset < MAX_SCROLL_HEIGHT && offset > -MAX_SCROLL_HEIGHT) {
-                        mChildRootView.scrollBy(0, (int) (deltaY * SCROLL_RATIO));
-                        if (scrollViewListener != null) {
-                            scrollViewListener.onScroll(mChildRootView.getScrollY());
-                        }
-                        mTouchStop = false;
+//                    if (offset < MAX_SCROLL_HEIGHT && offset > -MAX_SCROLL_HEIGHT) {
+                    mChildRootView.scrollBy(0, (int) (deltaY * SCROLL_RATIO));
+                    if (scrollViewListener != null) {
+                        scrollViewListener.onScrollMove(mChildRootView.getScrollY());
                     }
+                    mTouchStop = false;
+//                    }
                 }
                 break;
 
@@ -136,7 +140,23 @@ public class StretchScrollView extends ScrollView {
         }
     }
 
-    private boolean isNeedMove() {
+    private void ScrollBack() {
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(mChildRootView.getScrollY(), 0);
+        valueAnimator.setDuration(SCROLL_BACK_TIME);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                int value = (int) animation.getAnimatedValue();
+                mChildRootView.scrollTo(0, value);
+                if (scrollViewListener != null) {
+                    scrollViewListener.onScrollUp(value);
+                }
+            }
+        });
+        valueAnimator.start();
+    }
+
+    public boolean isNeedMove() {
         int viewHeight = mChildRootView.getMeasuredHeight();
         int scrollHeight = getHeight();
         int offset = viewHeight - scrollHeight;
@@ -148,7 +168,7 @@ public class StretchScrollView extends ScrollView {
     @Override
     protected void onScrollChanged(int x, int y, int oldx, int oldy) {
         super.onScrollChanged(x, y, oldx, oldy);
-
+        Log.i("StretchScrollView  ", oldy + " " + y + "  " + mChildRootView.getScrollY());
     }
 
     public void setScrollViewListener(ScrollViewListener scrollViewListener) {
@@ -158,8 +178,13 @@ public class StretchScrollView extends ScrollView {
     private ScrollViewListener scrollViewListener = null;
 
     public interface ScrollViewListener {
-        void onScroll(int y);
+        void onScrollMove(int delatY);
 
-        void onScrollUp(int y);
+        void onScrollUp(int delatY);
     }
+
+    public int getChildRootViewY() {
+        return mChildRootView.getScrollY();
+    }
+
 }

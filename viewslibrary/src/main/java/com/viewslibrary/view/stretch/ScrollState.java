@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.viewslibrary.view.ob;
+package com.viewslibrary.view.stretch;
 
 /**
  * Constants that indicates the scroll state of the Scrollable widgets.

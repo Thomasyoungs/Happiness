@@ -2,36 +2,38 @@ package com.credit.happiness.fragment.personal;
 
 import android.content.res.TypedArray;
 import android.os.Build;
+import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.credit.happiness.R;
 import com.credit.happiness.fragment.base.BaseFragment;
 import com.nineoldandroids.view.ViewHelper;
-import com.viewslibrary.view.ob.ObservableScrollView;
-import com.viewslibrary.view.ob.ObservableScrollViewCallbacks;
-import com.viewslibrary.view.ob.ScrollState;
-import com.viewslibrary.view.ob.StretchScrollView;
+import com.viewslibrary.view.stretch.ObStretchScrollView;
+import com.viewslibrary.view.stretch.ObScrollViewCallbacks;
+import com.viewslibrary.view.stretch.ScrollState;
+import com.viewslibrary.view.stretch.StretchScrollView;
 
 
 /**
  *
  */
 
-public class PersonalCenterFragmentV7 extends BaseFragment implements ObservableScrollViewCallbacks {
+public class PersonalCenterFragmentV7 extends BaseFragment implements ObScrollViewCallbacks {
 
     private View mFlexibleSpaceView;
+    private ObStretchScrollView scrollView;
     private RelativeLayout mToolbarView;
     private RelativeLayout mTitleView;
     private int mFlexibleSpaceHeight;
-    private int flexibleSpaceAndToolbarHeight;
-    private float offsetY;
-    private boolean isFlexibleStop = true;  //缩放动画停止
-    private boolean isFlexibleStop2 = true;  //缩放动画停止
-    private int maxTitleTranslateY;
+    private float flexibleSpaceAndToolbarHeight;
+    private float criticalY;   //标题栏放大到最大点Y的平移位置
+    private float criticalD;   //标题栏放大到最大时和背景下边界的距离
+    private ProgressBar progressbar;
 
 
     @Override
@@ -42,51 +44,38 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements Observable
     @Override
     protected void onInitView(View containerView) {
 
-
+        progressbar = containerView.findViewById(R.id.default_header_progressbar);
+        progressbar.setIndeterminateDrawable(ContextCompat.getDrawable(context, R.drawable.load_frame));
         mToolbarView = containerView.findViewById(R.id.toolbar);
         mToolbarView.setBackgroundColor(getColorWithAlpha(0, getResources().getColor(R.color.orange)));
-        mTitleView = containerView.findViewById(R.id.flexible_layout);
+        mTitleView = containerView.findViewById(R.id.flexible_title_layout);
         getActivity().setTitle(null);
         mFlexibleSpaceView = containerView.findViewById(R.id.flexible_space);
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_height);
         flexibleSpaceAndToolbarHeight = mFlexibleSpaceHeight + getActionBarSize();
-        containerView.findViewById(R.id.body).setPadding(0, flexibleSpaceAndToolbarHeight, 0, 0);
-        mFlexibleSpaceView.getLayoutParams().height = flexibleSpaceAndToolbarHeight;
-        final ObservableScrollView scrollView = containerView.findViewById(R.id.scroll);
+        containerView.findViewById(R.id.body).setPadding(0, (int) flexibleSpaceAndToolbarHeight, 0, 0);
+        mFlexibleSpaceView.getLayoutParams().height = (int) flexibleSpaceAndToolbarHeight;
+        scrollView = containerView.findViewById(R.id.scroll);
         scrollView.setScrollViewCallbacks(this);
         scrollView.setScrollViewListener(new StretchScrollView.ScrollViewListener() {
             @Override
-            public void onScroll(int y) {
-                offsetY += y;
-                Log.i("onScroll", "y = " + y + "offsetY  = " + -offsetY);
-                if (y < 0 && isFlexibleStop) {//开始拉伸
-//                    ViewHelper.setTranslationY(mFlexibleSpaceView, -offsetY);
-                    ViewHelper.setTranslationY(mTitleView, maxTitleTranslateY - offsetY);//title平移
-                    float scale = (float) ((-offsetY / 0.8) / flexibleSpaceAndToolbarHeight);
-                    ViewHelper.setPivotY(mFlexibleSpaceView, 0);
-                    ViewHelper.setScaleY(mFlexibleSpaceView, scale + 1);
-                }
+            public void onScrollMove(int delatY) {
+                Log.i("onScrollMove", "delatY = " + delatY);
+                moveDragFlexibleSpaceAndText(delatY);
 
             }
 
             @Override
-            public void onScrollUp(int y) {
-                Log.i("onScrollUp", "onScrollUp = " + y);
-                if (y < 0 && isFlexibleStop) {
-//                    ViewHelper.setTranslationY(mFlexibleSpaceView, -y);
-                    ViewHelper.setTranslationY(mTitleView, maxTitleTranslateY - y);
-                    float scale = ((float) (-y)) / flexibleSpaceAndToolbarHeight;
-                    ViewHelper.setPivotY(mFlexibleSpaceView, 0);
-                    ViewHelper.setScaleY(mFlexibleSpaceView, scale + 1);
-                }
-                offsetY = 0;
-                if (y == 0) {//缩放动画停止
-                    isFlexibleStop2 = true;
-                } else {
-                    isFlexibleStop2 = false;
-                }
+            public void onScrollUp(int delatY) {
+                Log.i("onScrollUp", "delatY = " + delatY);
+                upDragFlexibleSpaceAndText(delatY);
             }
         });
+
+    }
+
+    @Override
+    protected void onInitListener() {
         ViewTreeObserver vto = mFlexibleSpaceView.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @SuppressWarnings("deprecation")
@@ -100,7 +89,6 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements Observable
                 new Runnable() {
                     @Override
                     public void run() {
-                        Log.i("scrollView", "scrollView =  " + scrollView.getCurrentScrollY());
                         updateFlexibleSpaceText(scrollView.getCurrentScrollY());
                     }
                 }.run();
@@ -118,12 +106,50 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements Observable
         return actionBarSize;
     }
 
+    /**
+     * @param delatY
+     */
+    public void upDragFlexibleSpaceAndText(int delatY) {
+        if (delatY <= 0) {
+//                    ViewHelper.setTranslationY(mFlexibleSpaceView, -delatY);
+            if (mTitleView.getY() > 0) {
+                ViewHelper.setTranslationY(mTitleView, criticalY - delatY);//title平移 与0取最大避免滑出上顶点
+            }
+            float scale = (-delatY) / flexibleSpaceAndToolbarHeight;
+            ViewHelper.setPivotY(mFlexibleSpaceView, 0);
+            ViewHelper.setScaleY(mFlexibleSpaceView, scale + 1);
+        }
+    }
+
+    /**
+     * @param delatY
+     */
+    public void moveDragFlexibleSpaceAndText(int delatY) {
+        if (delatY <= 0 && mTitleView.getY() >= criticalY) {//开始拉伸
+//                    ViewHelper.setTranslationY(mFlexibleSpaceView, -delatY);
+            if (mTitleView.getY() > 0) {
+                ViewHelper.setTranslationY(mTitleView, criticalY - delatY);//title平移 与0取最大避免滑出上顶点
+            }
+            float scale = (-delatY) / flexibleSpaceAndToolbarHeight;
+            ViewHelper.setPivotY(mFlexibleSpaceView, 0);
+            ViewHelper.setScaleY(mFlexibleSpaceView, scale + 1);
+            //加载动画
+            progressbar.setVisibility(View.VISIBLE);
+        }
+    }
+
+    /**
+     * 更新标题的缩放
+     *
+     * @param scrollY
+     */
     private void updateFlexibleSpaceText(final int scrollY) {
-        if (!isFlexibleStop2) {
+        ViewHelper.setTranslationY(mFlexibleSpaceView, -scrollY);
+        if (mTitleView.getY() > criticalY && criticalY != 0) {
+            float currentY = mTitleView.getY();
+            ViewHelper.setTranslationY(mTitleView, currentY - scrollY);
             return;
         }
-        ViewHelper.setTranslationY(mFlexibleSpaceView, -scrollY);
-
         int adjustedScrollY = Math.min(mFlexibleSpaceHeight, Math.max(0, scrollY));
         float maxScale = (float) (mFlexibleSpaceHeight - mToolbarView.getHeight()) / mToolbarView.getHeight();
         float scale = maxScale * ((float) mFlexibleSpaceHeight - adjustedScrollY) / mFlexibleSpaceHeight;
@@ -143,16 +169,14 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements Observable
         mToolbarView.setBackgroundColor(getColorWithAlpha(alpha, baseColor));
 
         if (scrollY == 0) {//缩放动画停止
-            isFlexibleStop = true;
-            maxTitleTranslateY = titleTranslationY;
-        } else {
-            isFlexibleStop = false;
+            criticalY = mTitleView.getY();
+            criticalD = mFlexibleSpaceView.getY() - criticalY;
         }
     }
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
-        Log.i("onScroll ", "scrolly = " + scrollY + " first = " + firstScroll + " dragging = " + dragging);
+        Log.i("onScrollChanged ", "scrolly = " + scrollY + " first = " + firstScroll + " dragging = " + dragging);
         updateFlexibleSpaceText(scrollY);
     }
 

@@ -10,7 +10,7 @@
         android:layout_height="20dp"
         android:background="#000000" />
 
-    <com.viewslibrary.view.ob.ObservableScrollView
+    <com.viewslibrary.view.stretch.ObStretchScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -628,7 +628,7 @@
 
         </LinearLayout>
 
-    </com.viewslibrary.view.ob.ObservableScrollView>
+    </com.viewslibrary.view.stretch.ObStretchScrollView>
 
     <View
         android:id="@+id/flexible_space"
@@ -671,6 +671,13 @@
             android:layout_height="5dp"
             android:layout_alignParentRight="true"
             android:visibility="gone" />
+        <ProgressBar
+            android:id="@+id/default_header_progressbar"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="@dimen/_view_20"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -680,17 +687,17 @@
         android:background="@color/common_transparent">
 
         <RelativeLayout
-            android:id="@+id/flexible_layout"
+            android:id="@+id/flexible_title_layout"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@color/common_transparent"
-            android:gravity="center_vertical"
             android:paddingLeft="@dimen/_view_20">
 
             <com.viewslibrary.shapeimageview.CircularImageView
                 android:id="@+id/header"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
+                android:layout_centerVertical="true"
                 android:src="@drawable/icon_head_photo" />
 
             <TextView
@@ -701,6 +708,7 @@
                 android:layout_toRightOf="@+id/header"
                 android:gravity="center"
                 android:text="@string/fragment_personcenter_login"
+                android:layout_centerVertical="true"
                 android:textColor="@color/white"
                 android:textSize="@dimen/_size_15"
                 android:textStyle="bold" />

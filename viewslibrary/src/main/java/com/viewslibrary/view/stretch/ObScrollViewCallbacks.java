@@ -1,11 +1,11 @@
 
 
-package com.viewslibrary.view.ob;
+package com.viewslibrary.view.stretch;
 
 /**
  * Callbacks for Scrollable widgets.
  */
-public interface ObservableScrollViewCallbacks {
+public interface ObScrollViewCallbacks {
     /**
      * Called when the scroll change events occurred.
      * <p>This won't be called just after the view is laid out, so if you'd like to

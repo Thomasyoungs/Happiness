@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.viewslibrary.view.ob;
+package com.viewslibrary.view.stretch;
 
 import android.content.Context;
 import android.os.Parcel;
@@ -30,15 +30,15 @@ import java.util.List;
 /**
  * ScrollView that its scroll position can be observed.
  */
-public class ObservableScrollView extends StretchScrollView implements Scrollable {
+public class ObStretchScrollView extends StretchScrollView implements Scrollable {
 
     // Fields that should be saved onSaveInstanceState
     private int mPrevScrollY;
     private int mScrollY;
 
     // Fields that don't need to be saved onSaveInstanceState
-    private ObservableScrollViewCallbacks mCallbacks;
-    private List<ObservableScrollViewCallbacks> mCallbackCollection;
+    private ObScrollViewCallbacks mCallbacks;
+    private List<ObScrollViewCallbacks> mCallbackCollection;
     private ScrollState mScrollState;
     private boolean mFirstScroll;
     private boolean mDragging;
@@ -46,15 +46,15 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
     private MotionEvent mPrevMoveEvent;
     private ViewGroup mTouchInterceptionViewGroup;
 
-    public ObservableScrollView(Context context) {
+    public ObStretchScrollView(Context context) {
         super(context);
     }
 
-    public ObservableScrollView(Context context, AttributeSet attrs) {
+    public ObStretchScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public ObservableScrollView(Context context, AttributeSet attrs, int defStyle) {
+    public ObStretchScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
 
@@ -96,7 +96,7 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
             //} else {
             // Keep previous state while dragging.
             // Never makes it STOP even if scrollY not changed.
-            // Before Android 4.4, onTouchEvent calls onScroll directly for ACTION_MOVE,
+            // Before Android 4.4, onTouchEvent calls onScrollMove directly for ACTION_MOVE,
             // which makes mScrollState always STOP when onUpOrCancelMotionEvent is called.
             // STOP state is now meaningless for ScrollView.
         }
@@ -197,12 +197,12 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
     }
 
     @Override
-    public void setScrollViewCallbacks(ObservableScrollViewCallbacks listener) {
+    public void setScrollViewCallbacks(ObScrollViewCallbacks listener) {
         mCallbacks = listener;
     }
 
     @Override
-    public void addScrollViewCallbacks(ObservableScrollViewCallbacks listener) {
+    public void addScrollViewCallbacks(ObScrollViewCallbacks listener) {
         if (mCallbackCollection == null) {
             mCallbackCollection = new ArrayList<>();
         }
@@ -210,7 +210,7 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
     }
 
     @Override
-    public void removeScrollViewCallbacks(ObservableScrollViewCallbacks listener) {
+    public void removeScrollViewCallbacks(ObScrollViewCallbacks listener) {
         if (mCallbackCollection != null) {
             mCallbackCollection.remove(listener);
         }
@@ -244,7 +244,7 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
         }
         if (mCallbackCollection != null) {
             for (int i = 0; i < mCallbackCollection.size(); i++) {
-                ObservableScrollViewCallbacks callbacks = mCallbackCollection.get(i);
+                ObScrollViewCallbacks callbacks = mCallbackCollection.get(i);
                 callbacks.onDownMotionEvent();
             }
         }
@@ -256,7 +256,7 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
         }
         if (mCallbackCollection != null) {
             for (int i = 0; i < mCallbackCollection.size(); i++) {
-                ObservableScrollViewCallbacks callbacks = mCallbackCollection.get(i);
+                ObScrollViewCallbacks callbacks = mCallbackCollection.get(i);
                 callbacks.onScrollChanged(scrollY, firstScroll, dragging);
             }
         }
@@ -268,7 +268,7 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
         }
         if (mCallbackCollection != null) {
             for (int i = 0; i < mCallbackCollection.size(); i++) {
-                ObservableScrollViewCallbacks callbacks = mCallbackCollection.get(i);
+                ObScrollViewCallbacks callbacks = mCallbackCollection.get(i);
                 callbacks.onUpOrCancelMotionEvent(scrollState);
             }
         }
@@ -317,5 +317,67 @@ public class ObservableScrollView extends StretchScrollView implements Scrollabl
                 return new SavedState[size];
             }
         };
+    }
+    /**
+     * Interface for providing common API for observable and scrollable widgets.
+     */
+    public interface Scrollable {
+        /**
+         * Set a callback listener.<br>
+         * Developers should use {@link #addScrollViewCallbacks(ObScrollViewCallbacks)}
+         * and {@link #removeScrollViewCallbacks(ObScrollViewCallbacks)}.
+         *
+         * @param listener Listener to set.
+         */
+        @Deprecated
+        void setScrollViewCallbacks(ObScrollViewCallbacks listener);
+
+        /**
+         * Add a callback listener.
+         *
+         * @param listener Listener to add.
+         * @since 1.7.0
+         */
+        void addScrollViewCallbacks(ObScrollViewCallbacks listener);
+
+        /**
+         * Remove a callback listener.
+         *
+         * @param listener Listener to remove.
+         * @since 1.7.0
+         */
+        void removeScrollViewCallbacks(ObScrollViewCallbacks listener);
+
+        /**
+         * Clear callback listeners.
+         *
+         * @since 1.7.0
+         */
+        void clearScrollViewCallbacks();
+
+        /**
+         * Scroll vertically to the absolute Y.<br>
+         * Implemented classes are expected to scroll to the exact Y pixels from the top,
+         * but it depends on the type of the widget.
+         *
+         * @param y Vertical position to scroll to.
+         */
+        void scrollVerticallyTo(int y);
+
+        /**
+         * Return the current Y of the scrollable view.
+         *
+         * @return Current Y pixel.
+         */
+        int getCurrentScrollY();
+
+        /**
+         * Set a touch motion event delegation ViewGroup.<br>
+         * This is used to pass motion events back to parent view.
+         * It's up to the implementation classes whether or not it works.
+         *
+         * @param viewGroup ViewGroup object to dispatch motion events.
+         */
+        void setTouchInterceptionViewGroup(ViewGroup viewGroup);
     }
 }

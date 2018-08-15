@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.viewslibrary.view.ob;
+package com.viewslibrary.view.stretch;
 
 import android.view.ViewGroup;
 
@@ -24,13 +24,13 @@ import android.view.ViewGroup;
 public interface Scrollable {
     /**
      * Set a callback listener.<br>
-     * Developers should use {@link #addScrollViewCallbacks(ObservableScrollViewCallbacks)}
-     * and {@link #removeScrollViewCallbacks(ObservableScrollViewCallbacks)}.
+     * Developers should use {@link #addScrollViewCallbacks(ObScrollViewCallbacks)}
+     * and {@link #removeScrollViewCallbacks(ObScrollViewCallbacks)}.
      *
      * @param listener Listener to set.
      */
     @Deprecated
-    void setScrollViewCallbacks(ObservableScrollViewCallbacks listener);
+    void setScrollViewCallbacks(ObScrollViewCallbacks listener);
 
     /**
      * Add a callback listener.
@@ -38,7 +38,7 @@ public interface Scrollable {
      * @param listener Listener to add.
      * @since 1.7.0
      */
-    void addScrollViewCallbacks(ObservableScrollViewCallbacks listener);
+    void addScrollViewCallbacks(ObScrollViewCallbacks listener);
 
     /**
      * Remove a callback listener.
@@ -46,7 +46,7 @@ public interface Scrollable {
      * @param listener Listener to remove.
      * @since 1.7.0
      */
-    void removeScrollViewCallbacks(ObservableScrollViewCallbacks listener);
+    void removeScrollViewCallbacks(ObScrollViewCallbacks listener);
 
     /**
      * Clear callback listeners.

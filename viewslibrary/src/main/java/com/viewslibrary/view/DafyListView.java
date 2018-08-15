@@ -34,7 +34,7 @@ public class DafyListView extends ListView implements OnScrollListener {
     private Scroller mScroller; // used for scroll back
     private OnScrollListener mScrollListener; // user's scroll listener
 
-    // the interface to trigger refresh and load more.
+    // the flexible to trigger refresh and load more.
     protected GListViewListener mListViewListener;
 
     // -- header view
@@ -438,7 +438,7 @@ public class DafyListView extends ListView implements OnScrollListener {
                     final float deltaY = ev.getY() - mLastY;
                     mLastY = ev.getY();
 //                    Log.i("getScrollHeight", getScrollHeight() + "getScrollHeight" + MatchDetailFragment.headerHeight);
-//                    if (innerListScrolListner != null && !innerListScrolListner.onScroll(deltaY / OFFSET_RADIO,
+//                    if (innerListScrolListner != null && !innerListScrolListner.onScrollMove(deltaY / OFFSET_RADIO,
 //                            getFirstVisiblePosition() == 0, currentScrollState)) { //获取list滚动信息的listener
 ////                        return super.dispatchTouchEvent(ev);
 //                        return true;
@@ -631,7 +631,7 @@ public class DafyListView extends ListView implements OnScrollListener {
     }
 
     /**
-     * implements this interface to get refresh/load more event.
+     * implements this flexible to get refresh/load more event.
      */
     public interface GListViewListener {
         public void onRefresh();
