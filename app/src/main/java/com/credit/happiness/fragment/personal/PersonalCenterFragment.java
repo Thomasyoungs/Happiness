@@ -1,20 +1,18 @@
 package com.credit.happiness.fragment.personal;
 
 import android.content.res.TypedArray;
-import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 import com.credit.happiness.R;
 import com.credit.happiness.fragment.base.BaseFragment;
 import com.nineoldandroids.view.ViewHelper;
-import com.viewslibrary.view.stretch.ObStretchScrollView;
 import com.viewslibrary.view.stretch.ObScrollViewCallbacks;
+import com.viewslibrary.view.stretch.ObStretchScrollView;
 import com.viewslibrary.view.stretch.ScrollState;
 import com.viewslibrary.view.stretch.StretchScrollView;
 
@@ -23,7 +21,7 @@ import com.viewslibrary.view.stretch.StretchScrollView;
  *
  */
 
-public class PersonalCenterFragmentV7 extends BaseFragment implements ObScrollViewCallbacks {
+public class PersonalCenterFragment extends BaseFragment implements ObScrollViewCallbacks {
 
     private View mFlexibleSpaceView;
     private ObStretchScrollView scrollView;
@@ -38,7 +36,7 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements ObScrollVi
 
     @Override
     protected int onSetContainerViewId() {
-        return R.layout.fragment_home_personalcnenter_layoutv7;
+        return R.layout.fragment_home_personalcnenter_layout;
     }
 
     @Override
@@ -54,6 +52,7 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements ObScrollVi
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.flexible_space_height);
         flexibleSpaceAndToolbarHeight = mFlexibleSpaceHeight + getActionBarSize();
         containerView.findViewById(R.id.body).setPadding(0, (int) flexibleSpaceAndToolbarHeight, 0, 0);
+//        containerView.findViewById(R.id.body).setPadding(0, (int) getActionBarSize(), 0, 0);
         mFlexibleSpaceView.getLayoutParams().height = (int) flexibleSpaceAndToolbarHeight;
         scrollView = containerView.findViewById(R.id.scroll);
         scrollView.setScrollViewCallbacks(this);
@@ -76,7 +75,7 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements ObScrollVi
 
     @Override
     protected void onInitListener() {
-        ViewTreeObserver vto = mFlexibleSpaceView.getViewTreeObserver();
+      /*  ViewTreeObserver vto = mFlexibleSpaceView.getViewTreeObserver();
         vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @SuppressWarnings("deprecation")
             @Override
@@ -93,7 +92,7 @@ public class PersonalCenterFragmentV7 extends BaseFragment implements ObScrollVi
                     }
                 }.run();
             }
-        });
+        });*/
     }
 
     protected int getActionBarSize() {

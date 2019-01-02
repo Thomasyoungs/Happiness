@@ -635,7 +635,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_below="@+id/empty_status_bar"
-        android:background="@drawable/bg_test" />
+        android:background="@drawable/bg_creadit_select" />
 
     <RelativeLayout
         android:id="@+id/toolbar"

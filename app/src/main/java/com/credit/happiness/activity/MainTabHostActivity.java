@@ -28,7 +28,7 @@ import com.credit.happiness.fragment.base.BaseFragment;
 import com.credit.happiness.fragment.home.DafyTabHost;
 import com.credit.happiness.fragment.home.HomeFragmentTabHost;
 import com.credit.happiness.fragment.home.HomeMainFragment;
-import com.credit.happiness.fragment.personal.PersonalCenterFragmentV7;
+import com.credit.happiness.fragment.personal.PersonalCenterFragment;
 import com.credit.happiness.fragment.scan.ScanFragment;
 import com.credit.happiness.utils.ActivityStack;
 
@@ -43,7 +43,7 @@ public class MainTabHostActivity extends BaseFragmentActivity implements
 
 
     private enum TAB {
-        NEWS("首页"), SCAN("扫一扫"), PERSON("我的");
+        NEWS("首页"), SCAN("附近"), PERSON("我的");
 
         TAB(String cName) {
             this.cName = cName;
@@ -221,20 +221,20 @@ public class MainTabHostActivity extends BaseFragmentActivity implements
 
         hotView = View.inflate(MainTabHostActivity.this, R.layout.activity_main_tab, null);
         hotImag = ((ImageView) hotView.findViewById(R.id.tab_imageview_icon));
-        hotImag.setImageResource(R.drawable.icon_launcher_round);
+        hotImag.setImageResource(R.drawable.selector_tab_home);
         hotText = (TextView) hotView.findViewById(R.id.tab_textview_title);
         hotText.setText(TAB.SCAN.getName());
 
 
         newsView = View.inflate(MainTabHostActivity.this, R.layout.activity_main_tab, null);
         ((ImageView) newsView.findViewById(R.id.tab_imageview_icon))
-                .setImageResource(R.drawable.icon_launcher_round);
+                .setImageResource(R.drawable.selector_tab_near);
         newsText = (TextView) newsView.findViewById(R.id.tab_textview_title);
         newsText.setText(TAB.NEWS.getName());
 
         personView = View.inflate(MainTabHostActivity.this, R.layout.activity_main_tab, null);
         ((ImageView) personView.findViewById(R.id.tab_imageview_icon))
-                .setImageResource(R.drawable.icon_launcher_round);
+                .setImageResource(R.drawable.selector_tab_mine);
         personText = (TextView) personView.findViewById(R.id.tab_textview_title);
         personText.setText(TAB.PERSON.getName());
     }
@@ -247,7 +247,7 @@ public class MainTabHostActivity extends BaseFragmentActivity implements
                 mTabHost.newTabSpec(TAB.SCAN.getName()).setIndicator(hotView), ScanFragment.class
                 , null);
         mTabHost.addTab(mTabHost.newTabSpec(TAB.PERSON.getName()).setIndicator(personView),
-                PersonalCenterFragmentV7.class, null);
+                PersonalCenterFragment.class, null);
 
 
         mTabHost.getTabWidget().setVisibility(View.VISIBLE);
