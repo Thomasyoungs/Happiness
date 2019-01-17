@@ -1,9 +1,6 @@
 package com.viewslibrary.view.stretch;
 
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.os.Handler;
-import android.os.Message;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -11,9 +8,7 @@ import android.view.View;
 import android.widget.ScrollView;
 
 /**
- * A ScrollView which can scroll to (0,0) when pull down or up.
- *
- * @author markmjw
+ * @author yangzhikuan
  * @date 2014-04-30
  */
 public class StretchScrollView extends ScrollView {
@@ -23,13 +18,12 @@ public class StretchScrollView extends ScrollView {
      * The max scroll height.
      */
     private static final int MAX_SCROLL_HEIGHT = 400;
-    private static final int SCROLL_BACK_TIME = 300;
+    public static final int SCROLL_BACK_TIME = 300;
     /**
-     * Damping, the smaller the greater the resistance
      */
     public static final float SCROLL_RATIO = 0.4f;
 
-    private View mChildRootView;
+    protected View mChildRootView;
 
     private float mTouchY;
     private boolean mTouchStop = false;
@@ -37,7 +31,7 @@ public class StretchScrollView extends ScrollView {
     private int mScrollY = 0;
     private int mScrollDy = 0;
 
-    private Handler mHandler = new Handler() {
+/*    private Handler mHandler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
             if (MSG_REST_POSITION == msg.what) {
@@ -56,7 +50,7 @@ public class StretchScrollView extends ScrollView {
                 }
             }
         }
-    };
+    };*/
 
     public StretchScrollView(Context context) {
         super(context);
@@ -77,16 +71,15 @@ public class StretchScrollView extends ScrollView {
     }
 
     private void init() {
-        // set scroll mode
         setOverScrollMode(OVER_SCROLL_NEVER);
     }
 
     @Override
     protected void onFinishInflate() {
         if (getChildCount() > 0) {
-            // when finished inflating from layout xml, get the first child view
             mChildRootView = getChildAt(0);
         }
+        super.onFinishInflate();
     }
 
     @Override
@@ -141,19 +134,9 @@ public class StretchScrollView extends ScrollView {
     }
 
     private void ScrollBack() {
-        ValueAnimator valueAnimator = ValueAnimator.ofInt(mChildRootView.getScrollY(), 0);
-        valueAnimator.setDuration(SCROLL_BACK_TIME);
-        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                int value = (int) animation.getAnimatedValue();
-                mChildRootView.scrollTo(0, value);
-                if (scrollViewListener != null) {
-                    scrollViewListener.onScrollUp(value);
-                }
-            }
-        });
-        valueAnimator.start();
+        if (scrollViewListener != null) {
+            scrollViewListener.onScrollUp();
+        }
     }
 
     public boolean isNeedMove() {
@@ -180,11 +163,18 @@ public class StretchScrollView extends ScrollView {
     public interface ScrollViewListener {
         void onScrollMove(int delatY);
 
-        void onScrollUp(int delatY);
+        void onScrollUp();
     }
 
     public int getChildRootViewY() {
         return mChildRootView.getScrollY();
+    }
+
+    /**
+     * @param y
+     */
+    public void chileRootViewScroll(int y) {
+        mChildRootView.scrollTo(0, y);
     }
 
 }

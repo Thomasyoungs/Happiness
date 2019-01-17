@@ -2,19 +2,47 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/f7f7f7">
 
     <View
-        android:id="@+id/empty_status_bar"
+        android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:background="#000000" />
+        android:background="@color/orange" />
+
+    <View
+        android:id="@+id/flexible_space"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/empty_status_bar"
+        android:background="@drawable/bg_creadit_select" />
+
+    <ProgressBar
+        android:id="@+id/default_header_progressbar"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_view_5"
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/default_header_hint_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/default_header_progressbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="4dp"
+        android:text="@string/listview_header_hint_normal"
+        android:textColor="#55000000"
+        android:textSize="11sp"
+        android:visibility="invisible" />
 
     <com.viewslibrary.view.stretch.ObStretchScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/empty_status_bar"
+        android:background="@color/common_transparent"
         android:fillViewport="true"
         android:scrollbars="none">
 
@@ -22,39 +50,22 @@
             android:id="@+id/body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/common_transparent"
             android:orientation="vertical">
-
-            <RelativeLayout
-                android:id="@+id/title_layout"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:background="@color/orange"
-                android:visibility="gone">
-
-
-            </RelativeLayout>
 
             <RelativeLayout
                 android:id="@+id/header_layout"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:background="@color/white"
-                android:paddingLeft="@dimen/_view_20"
-                android:visibility="gone">
+                android:layout_height="80dp"
+                android:background="@color/common_transparent"
+                android:paddingLeft="@dimen/_view_20">
 
-                <com.viewslibrary.shapeimageview.CircularImageView
-                    android:id="@+id/fragment_personcrnter_user_icon_img"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginBottom="@dimen/_view_30"
-                    android:src="@drawable/icon_head_photo" />
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_toRightOf="@+id/fragment_personcrnter_user_icon_img"
+                    android:background="@color/common_transparent"
                     android:paddingLeft="@dimen/_size_10">
 
 
@@ -63,17 +74,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="60dp"
                         android:gravity="center_vertical"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:visibility="gone">
 
-                        <TextView
-                            android:id="@+id/fragment_personcrnter_user_title_tv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="60dp"
-                            android:gravity="center"
-                            android:text="@string/fragment_personcenter_login"
-                            android:textColor="@color/black"
-                            android:textSize="@dimen/_size_20"
-                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/fragment_personcrnter_user_edit_tv"
@@ -95,17 +98,18 @@
                         android:background="@drawable/personal_edu_shape"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:padding="@dimen/_view_10">
+                        android:padding="@dimen/_view_8">
 
                         <TextView
                             android:id="@+id/fragment_personcrnter_user_to_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/_view_5"
                             android:drawablePadding="@dimen/_view_5"
                             android:drawableRight="@drawable/icon_arrow_right_white"
                             android:gravity="center"
                             android:text="去申请额度"
-                            android:textColor="@color/white"
+                            android:textColor="@color/colorOrange"
                             android:textSize="@dimen/_size_13" />
 
                         <ImageView
@@ -119,15 +123,13 @@
 
             </RelativeLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_view_1"
-                android:background="@color/d8d8d8" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:layout_marginLeft="@dimen/_view_15"
+                android:layout_marginRight="@dimen/_view_15"
+                android:background="@drawable/personal_bg_corners"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:paddingBottom="@dimen/_size_15"
@@ -139,24 +141,26 @@
                     android:layout_width="@dimen/_view_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/_view_20">
-
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_yue_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="@dimen/_size_20" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_view_5"
                         android:text="@string/fragment_personcenter_yue"
-                        android:textColor="@color/f999999"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_size_13" />
+
+                    <TextView
+                        android:id="@+id/fragment_personcrnter_yue_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_view_10"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_size_22" />
+
 
                 </LinearLayout>
 
@@ -170,16 +174,8 @@
                     android:layout_width="@dimen/_view_0"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
-                    android:gravity="center_vertical"
-                    android:orientation="vertical"
-                    android:paddingLeft="@dimen/_view_20">
-
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_edu_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="0"
-                        android:textSize="@dimen/_size_20" />
+                    android:gravity="center"
+                    android:orientation="vertical">
 
                     <TextView
 
@@ -187,174 +183,214 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_view_5"
                         android:text="@string/fragment_personcenter_edu"
-                        android:textColor="@color/f999999"
+                        android:textColor="@color/black"
                         android:textSize="@dimen/_size_13" />
 
+                    <TextView
+                        android:id="@+id/fragment_personcrnter_edu_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_view_10"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_size_22" />
+
+
                 </LinearLayout>
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_view_10"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 android:background="@color/f7f7f7" />
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingBottom="@dimen/_view_15"
-                android:paddingTop="@dimen/_view_15"
-                android:weightSum="1.0">
+                android:layout_marginLeft="@dimen/_view_15"
+                android:layout_marginRight="@dimen/_view_15"
+                android:background="@drawable/personal_bg_corners">
 
-                <RelativeLayout
-                    android:id="@+id/fragment_personcrnter_daifukuan_lin"
-                    android:layout_width="0dp"
+                <TextView
+                    android:id="@+id/bill_text"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.195"
-                    android:gravity="center">
+                    android:layout_marginLeft="@dimen/_view_15"
+                    android:layout_marginTop="@dimen/_view_10"
+                    android:textColor="@color/black"
+                    android:text="我的订单" />
 
-                    <ImageView
-                        android:id="@+id/fragment_personcrnter_daifukuan_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-                        android:layout_alignParentTop="true"
-                        android:layout_centerHorizontal="true"
-                        android:background="@drawable/personcenter_daifukuan_icon" />
-
-                    <com.viewslibrary.view.CircleView
-                        android:id="@+id/extra_circle"
-                        android:layout_width="5dp"
-                        android:layout_height="5dp"
-                        android:layout_alignRight="@+id/fragment_personcrnter_daifukuan_img"
-                        android:visibility="gone" />
-
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_daifukuan_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/fragment_personcrnter_daifukuan_img"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginTop="@dimen/_view_5"
-                        android:text="@string/fragment_personcenter_daifukuan"
-                        android:textSize="@dimen/_size_12" />
-                </RelativeLayout>
+                <View
+                    android:id="@+id/bill_diliver"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_view_1"
+                    android:layout_below="@+id/bill_text"
+                    android:layout_marginLeft="@dimen/_view_15"
+                    android:layout_marginRight="@dimen/_view_15"
+                    android:layout_marginTop="@dimen/_view_10"
+                    android:background="@color/f7f7f7" />
 
                 <LinearLayout
-                    android:id="@+id/fragment_personcrnter_yizhifu_lin"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.195"
+                    android:layout_below="@+id/bill_diliver"
+
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="horizontal"
+                    android:paddingBottom="@dimen/_view_15"
+                    android:paddingTop="@dimen/_view_15"
+                    android:weightSum="1.0">
+
+                    <RelativeLayout
+                        android:id="@+id/fragment_personcrnter_daifukuan_lin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.195"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/fragment_personcrnter_daifukuan_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:layout_alignParentTop="true"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/personcenter_daifukuan_icon" />
+
+                        <com.viewslibrary.view.CircleView
+                            android:id="@+id/extra_circle"
+                            android:layout_width="5dp"
+                            android:layout_height="5dp"
+                            android:layout_alignRight="@+id/fragment_personcrnter_daifukuan_img"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/fragment_personcrnter_daifukuan_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/fragment_personcrnter_daifukuan_img"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginTop="@dimen/_view_5"
+                            android:text="@string/fragment_personcenter_daifukuan"
+                            android:textSize="@dimen/_size_12" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_personcrnter_yizhifu_lin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.195"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/fragment_personcrnter_yizhifu_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/personcenter_zhifuzhong_icon" />
+
+                        <TextView
+                            android:id="@+id/fragment_personcrnter_yizhifu_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_view_5"
+                            android:text="@string/fragment_personcenter_zhifuzhong"
+                            android:textSize="@dimen/_size_12" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_personcrnter_yiwancheng_lin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.195"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/fragment_personcrnter_yiwancheng_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/personcenter_yiwancheng_icon" />
+
+                        <TextView
+                            android:id="@+id/fragment_personcrnter_yiwancheng_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_view_5"
+                            android:text="@string/fragment_personcenter_yiwancheng"
+                            android:textSize="@dimen/_size_12" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/fragment_personcrnter_tuikuan_lin"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.195"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/fragment_personcrnter_tuikuan_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/personcenter_tuikuan_icon" />
+
+                        <TextView
+                            android:id="@+id/fragment_personcrnter_tuikuan_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_view_5"
+                            android:text="@string/fragment_personcenter_tuikuan"
+                            android:textSize="@dimen/_size_12" />
+                    </LinearLayout>
 
                     <ImageView
-                        android:id="@+id/fragment_personcrnter_yizhifu_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/personcenter_zhifuzhong_icon" />
+                        android:id="@+id/fragment_personcrnter_line"
+                        android:layout_width="@dimen/_view_1"
+                        android:layout_height="match_parent"
+                        android:background="@color/d8d8d8" />
 
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_yizhifu_tv"
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:id="@+id/fragment_personcrnter_dingdan_lin"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_view_5"
-                        android:text="@string/fragment_personcenter_zhifuzhong"
-                        android:textSize="@dimen/_size_12" />
+                        android:layout_weight="0.22"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/fragment_personcrnter_dingdan_img"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@drawable/personcenter_dingdan_icon" />
+
+                        <TextView
+                            android:id="@+id/fragment_personcrnter_dingdan_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_view_5"
+                            android:text="@string/fragment_personcenter_dingdan"
+                            android:textSize="@dimen/_size_12" />
+                    </LinearLayout>
+
                 </LinearLayout>
+            </RelativeLayout>
 
-                <LinearLayout
-                    android:id="@+id/fragment_personcrnter_yiwancheng_lin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.195"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/fragment_personcrnter_yiwancheng_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/personcenter_yiwancheng_icon" />
-
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_yiwancheng_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_view_5"
-                        android:text="@string/fragment_personcenter_yiwancheng"
-                        android:textSize="@dimen/_size_12" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/fragment_personcrnter_tuikuan_lin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.195"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/fragment_personcrnter_tuikuan_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/personcenter_tuikuan_icon" />
-
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_tuikuan_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_view_5"
-                        android:text="@string/fragment_personcenter_tuikuan"
-                        android:textSize="@dimen/_size_12" />
-                </LinearLayout>
-
-                <ImageView
-                    android:id="@+id/fragment_personcrnter_line"
-                    android:layout_width="@dimen/_view_1"
-                    android:layout_height="match_parent"
-                    android:background="@color/d8d8d8" />
-
-                <LinearLayout
-                    android:id="@+id/fragment_personcrnter_dingdan_lin"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.22"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:id="@+id/fragment_personcrnter_dingdan_img"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:background="@drawable/personcenter_dingdan_icon" />
-
-                    <TextView
-                        android:id="@+id/fragment_personcrnter_dingdan_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_view_5"
-                        android:text="@string/fragment_personcenter_dingdan"
-                        android:textSize="@dimen/_size_12" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/_view_5"
-                android:background="@color/f7f7f7" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_view_10"
+                android:layout_marginLeft="@dimen/_view_20"
+                android:layout_marginRight="@dimen/_view_20"
                 android:background="@color/f7f7f7" />
+
+
 
             <LinearLayout
                 android:id="@+id/content_view"
@@ -362,10 +398,6 @@
                 android:layout_height="wrap_content"
                 android:divider="@drawable/linear_line_transport"
                 android:orientation="horizontal"
-                android:paddingBottom="@dimen/_view_10"
-                android:paddingLeft="@dimen/_view_15"
-                android:paddingRight="@dimen/_view_15"
-                android:paddingTop="@dimen/_view_10"
                 android:showDividers="middle"
                 android:weightSum="1.0">
 
@@ -376,7 +408,8 @@
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.5"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/default_img2" />
+                    android:layout_marginLeft="@dimen/_view_15"
+                    android:src="@drawable/icon_person_novice" />
 
                 <ImageView
                     android:id="@+id/item_image2"
@@ -384,14 +417,15 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="0.5"
+                    android:layout_marginRight="@dimen/_view_15"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/default_img2" />
+                    android:src="@drawable/icon_person_apply" />
 
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_view_5"
+                android:layout_height="@dimen/_view_10"
                 android:background="@color/f7f7f7" />
 
             <LinearLayout
@@ -484,7 +518,6 @@
                         android:layout_alignLeft="@+id/personcenter_kajuan_title_tv"
                         android:layout_below="@+id/personcenter_kajuan_icon_img"
                         android:layout_marginTop="@dimen/_view_40"
-
                         android:background="@color/d8d8d8" />
                 </RelativeLayout>
 
@@ -542,7 +575,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/_view_10"
-                        android:background="@drawable/personcenter_help_icon" />
+                        android:background="@drawable/icon_services" />
 
                     <TextView
                         android:id="@+id/personcenter_help_title_tv"
@@ -551,7 +584,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/_view_10"
                         android:layout_toRightOf="@+id/personcenter_help_icon_img"
-                        android:text="@string/fragment_personcenter_help"
+                        android:text="@string/fragment_personcenter_services"
                         android:textColor="@color/f222222"
                         android:textSize="@dimen/_size_16" />
 
@@ -572,13 +605,13 @@
                         android:layout_below="@+id/personcenter_help_icon_img"
                         android:layout_marginTop="@dimen/_view_40"
                         android:background="@color/d8d8d8"
-                        android:visibility="visible" />
+                        android:visibility="invisible" />
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/personcenter_shezhi_rel"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
 
                     <ImageView
                         android:id="@+id/personcenter_shezhi_icon_img"
@@ -621,7 +654,7 @@
 
                 <View
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="@dimen/flexible_space_height"
                     android:layout_weight="1"
                     android:background="@color/f7f7f7" />
             </LinearLayout>
@@ -630,24 +663,18 @@
 
     </com.viewslibrary.view.stretch.ObStretchScrollView>
 
-    <View
-        android:id="@+id/flexible_space"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_below="@+id/empty_status_bar"
-        android:background="@drawable/bg_creadit_select" />
 
     <RelativeLayout
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/empty_status_bar"
         android:background="@color/orange">
 
         <ImageView
-            android:id="@+id/img_message"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:id="@+id/fragment_personcrnter_msg_img"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
@@ -656,28 +683,22 @@
             android:scaleType="centerCrop" />
 
         <ImageView
-            android:id="@+id/img_setting"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:id="@+id/personcenter_shezhi_rel"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/_view_15"
-            android:layout_toLeftOf="@+id/img_message"
-            android:background="@drawable/personcenter_shezhi_icon"
+            android:layout_toLeftOf="@+id/fragment_personcrnter_msg_img"
+            android:background="@drawable/icon_setting_white"
             android:scaleType="centerCrop" />
 
         <com.viewslibrary.view.CircleView
             android:id="@+id/extra_circle_message"
             android:layout_width="5dp"
             android:layout_height="5dp"
-            android:layout_alignParentRight="true"
-            android:visibility="gone" />
-        <ProgressBar
-            android:id="@+id/default_header_progressbar"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_marginTop="@dimen/_view_20"
-            android:layout_centerHorizontal="true"
-            android:visibility="invisible" />
+            android:layout_alignRight="@+id/fragment_personcrnter_msg_img"
+            android:layout_alignTop="@+id/fragment_personcrnter_msg_img" />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -694,31 +715,33 @@
             android:paddingLeft="@dimen/_view_20">
 
             <com.viewslibrary.shapeimageview.CircularImageView
-                android:id="@+id/header"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:id="@+id/fragment_personcrnter_user_icon_img"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/icon_head_photo" />
+                android:src="@drawable/icon_head_defaut" />
 
             <TextView
-                android:id="@+id/title"
+                android:id="@+id/fragment_personcrnter_user_title_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
+                android:layout_centerVertical="true"
                 android:layout_marginLeft="@dimen/_view_10"
-                android:layout_toRightOf="@+id/header"
+                android:layout_toRightOf="@+id/fragment_personcrnter_user_icon_img"
                 android:gravity="center"
                 android:text="@string/fragment_personcenter_login"
-                android:layout_centerVertical="true"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_size_15"
+                android:textSize="@dimen/_size_16"
                 android:textStyle="bold" />
+
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@android:color/transparent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="invisible">
 
             <View
                 android:layout_width="match_parent"
@@ -727,9 +750,16 @@
 
             <View
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
+                android:layout_height="match_parent"
                 android:background="@android:color/transparent" />
         </LinearLayout>
+
+
     </RelativeLayout>
 
+    <View
+        android:id="@+id/empty_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="@color/orange" />
 </RelativeLayout>

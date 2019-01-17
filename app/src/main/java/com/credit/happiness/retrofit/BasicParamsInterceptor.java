@@ -17,7 +17,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import okio.Buffer;
 /**
- * jdy 2017-12-12
+ *
  */
 
 public class BasicParamsInterceptor implements Interceptor {

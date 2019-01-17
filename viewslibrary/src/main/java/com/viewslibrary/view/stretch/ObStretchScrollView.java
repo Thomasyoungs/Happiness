@@ -24,6 +24,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.viewslibrary.view.stretch.ObScrollViewCallbacks;
+import com.viewslibrary.view.stretch.ScrollState;
+import com.viewslibrary.view.stretch.StretchScrollView;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -278,7 +282,7 @@ public class ObStretchScrollView extends StretchScrollView implements Scrollable
         return mCallbacks == null && mCallbackCollection == null;
     }
 
-    static class SavedState extends BaseSavedState {
+    static class SavedState extends View.BaseSavedState {
         int prevScrollY;
         int scrollY;
 
@@ -305,8 +309,8 @@ public class ObStretchScrollView extends StretchScrollView implements Scrollable
             out.writeInt(scrollY);
         }
 
-        public static final Parcelable.Creator<SavedState> CREATOR
-                = new Parcelable.Creator<SavedState>() {
+        public static final Creator<SavedState> CREATOR
+                = new Creator<SavedState>() {
             @Override
             public SavedState createFromParcel(Parcel in) {
                 return new SavedState(in);

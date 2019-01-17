@@ -30,7 +30,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 
 /**
- * jdy 2017-12-12
+ *
  */
 
 public class RetrofitNetHelper implements HttpLoggingInterceptor.Logger, ProgressListener {

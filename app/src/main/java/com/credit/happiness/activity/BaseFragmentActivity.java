@@ -102,8 +102,6 @@ public class BaseFragmentActivity extends FragmentActivity {
 
 
 
-
-
     @Override
     protected void onResume() {
         super.onResume();

@@ -40,7 +40,7 @@
             android:name="com.credit.happiness.activity.MainTabHostActivity"
             android:launchMode="standard"
             android:screenOrientation="portrait"
-            android:theme="@style/NoTitleActivityNoAnimStyle"
+            android:theme="@style/TranslucentTheme"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -168,7 +168,6 @@ public class AppInfo {
     }
 
     /**
-     * add by jdy
      * 获取application中指定的meta-data
      *
      * @return 如果没有获取成功(没有对应值，或者异常)，则返回值为空

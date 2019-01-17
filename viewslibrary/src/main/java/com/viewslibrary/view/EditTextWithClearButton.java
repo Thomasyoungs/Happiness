@@ -37,7 +37,7 @@ import com.viewslibrary.R;
  *
  *         modified by bingbing.qin
  */
-public class EditTextWithClearButton extends EditText implements
+public class EditTextWithClearButton extends android.support.v7.widget.AppCompatEditText implements
         OnTouchListener {
 
     private Drawable mClearButtonDrawable;

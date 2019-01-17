@@ -14,7 +14,7 @@ import com.viewslibrary.R;
 /**
  * Created by Three.
  */
-public class CircleTextView extends TextView {
+public class CircleTextView extends android.support.v7.widget.AppCompatTextView {
 
     private Paint mBgPaint = new Paint();
     private int mColor = Color.WHITE;

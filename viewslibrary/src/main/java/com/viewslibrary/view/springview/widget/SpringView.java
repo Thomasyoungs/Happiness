@@ -1048,7 +1048,7 @@ public class SpringView extends ViewGroup {
         }
     }
 
-    //下拉距离 add by jdy
+    //下拉距离
     ScrollChangeListener scrollChangeListener = null;
 
     public interface ScrollChangeListener {
