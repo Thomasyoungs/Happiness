@@ -10,9 +10,6 @@ import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.view.Gravity;
@@ -102,36 +99,7 @@ public class Methods {
         }
     }
 
-    /**
-     * 添加fragment顶部点击事件监听
-     */
-    public static boolean addFragmentTopClickListener(Fragment fragment, View.OnClickListener clickListener) {
-        if (fragment == null || !isFragmentAviable(fragment)) {
-            return false;
-        }
-        FragmentActivity activity = fragment.getActivity();
-        if (activity == null || !(activity instanceof ActionBarActivity)) {
-            return false;
-        }
-        ActionBar actionBar = ((ActionBarActivity) activity).getSupportActionBar();
-        if (actionBar == null) {
-            return false;
-        }
-        View customTopView = new View(activity);
-        /*ImageView customTopView = new ImageView(activity);
-        customTopView.setImageResource(R.drawable.feed_ab_icon);
-		customTopView.setScaleType(ScaleType.FIT_START);
-		int padding = (int) activity.getResources().getDimension(R.dimen.feed_action_padding);
-		customTopView.setPadding(padding, padding, padding, padding);*/
-        ActionBar.LayoutParams layoutParams = new ActionBar.LayoutParams(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
-        layoutParams.gravity = Gravity.LEFT;
-        actionBar.setCustomView(customTopView, layoutParams);
-        actionBar.setDisplayShowCustomEnabled(true);
-        //actionBar.setDisplayShowHomeEnabled(false);
-        //actionBar.setDisplayShowTitleEnabled(false);
-        customTopView.setOnClickListener(clickListener);
-        return true;
-    }
+
 
     /**
      * 动画滑动到顶部

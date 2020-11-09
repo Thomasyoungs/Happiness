@@ -5,12 +5,12 @@ def releaseTime() {
 }
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '27.0.1'
+    compileSdkVersion 28
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.credit.happiness"
         minSdkVersion 15
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -38,38 +38,10 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
-            applicationVariants.all { variant ->
-                variant.outputs.each { output ->
-                    def outputFile = output.outputFile
-                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                        // 输出apk名称为boohee_v1.0_2015-01-15_wandoujia.apk
-                        def fileName = "Happiness_v${defaultConfig.versionCode}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
-                        output.outputFile = new File(outputFile.parent, fileName)
-                    }
-                }
-            }
+
         }
     }
 
-// 友盟多渠道打包
-    productFlavors {
-        xiaomi {}
-        oppo {}
-        Official {}
-        vivo {}
-        _360 {}
-        baidu {}
-        lenovo {}
-        jinli {}
-        ali {}
-        huawei {}
-        meizu {}
-        tencent {}
-    }
-
-    productFlavors.all { flavor ->
-        flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
-    }
 
 }
 
@@ -89,21 +61,21 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
-    compile 'com.squareup.okhttp3:okhttp:3.3.0'
-    compile 'com.android.support:appcompat-v7:26.0.0-alpha1'
+    api 'com.android.support.constraint:constraint-layout:1.0.2'
+    api 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    api 'com.squareup.okhttp3:okhttp:3.3.0'
+    api 'com.android.support:appcompat-v7:28.0.0'
     // 友盟
-    compile 'com.umeng.sdk:common:latest.integration'
-    compile 'com.umeng.sdk:analytics:latest.integration'
-    compile 'com.nineoldandroids:library:2.4.0'
+    api 'com.umeng.sdk:common:latest.integration'
+    api 'com.umeng.sdk:analytics:latest.integration'
+    api 'com.nineoldandroids:library:2.4.0'
 
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.squareup.retrofit2:retrofit:2.0.1'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.1'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
-    compile 'com.squareup.okhttp3:okhttp:3.3.0'
+    api 'com.github.bumptech.glide:glide:3.7.0'
+    api 'com.squareup.retrofit2:retrofit:2.0.1'
+    api 'com.squareup.retrofit2:converter-gson:2.0.1'
+    api 'com.squareup.okhttp3:logging-interceptor:3.2.0'
+    api 'com.squareup.okhttp3:okhttp:3.3.0'
 
-    compile project(':umshare')
-    compile project(':viewslibrary')
+    api project(':umshare')
+    api project(':viewslibrary')
 }
